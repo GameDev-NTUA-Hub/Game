@@ -1,4 +1,4 @@
-name: Acquire activation file
+name: Build
 on: [push]
 jobs:
   activation:
@@ -11,6 +11,7 @@ jobs:
         with:
           projectPath: path/to/your/project
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+          unityVersion: 2020.3.3f1
       - uses: actions/upload-artifact@v2
         if: always()
         with:
