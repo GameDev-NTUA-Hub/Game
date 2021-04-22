@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+
         characterController = GetComponent<CharacterController>();
         yRotation = transform.localEulerAngles.y;
     }
@@ -38,11 +40,8 @@ public class PlayerMovement : MonoBehaviour
         float horizontalRotation = 0;
         float verticalRotation = 0;
 
-        if(Input.GetKey(KeyCode.Mouse0))
-        {
-            horizontalRotation = Input.GetAxis("Mouse X");
-            verticalRotation = Input.GetAxis("Mouse Y");
-        }
+        horizontalRotation = Input.GetAxis("Mouse X");
+        verticalRotation = Input.GetAxis("Mouse Y");
 
         float desiredYRotation = horizontalRotation * sensitivity;
         yRotation = Mathf.LerpAngle(yRotation, desiredYRotation, 0.01f);
